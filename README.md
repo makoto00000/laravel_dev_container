@@ -21,11 +21,25 @@ git clone https://github.com/makoto00000/laravel_dev_container.git
 mkdir src
 ```
 
+※ 必要に応じて、`php/Dockerfile`の以下の`setup_18.x`の部分をインストールしたいnodeのバージョンに書き換える。
+
+```shell
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+```
+
 ### 3. コンテナを起動
 
 ```shell
 docker-compose up -d --build
 ```
+
+<details>
+
+<summary>You don't have enough free space in /var/cache/apt/archives/.と表示される場合</summary>
+
+Dockerの設定で、`Virtual disk limit`がデフォルトでは64GBになっていると思うので、72GBとかに増やす。
+
+</details>
 
 ### 4. コンテナに入る
 

@@ -12,6 +12,9 @@ RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/
 COPY ./src/. /var/www/html
 WORKDIR /var/www/html
 
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
 RUN if [ -f "./composer.json" ]; then \
       composer install; \
     fi
